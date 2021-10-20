@@ -1,5 +1,6 @@
 package com.aie.thrillio.entity;
 
+import com.aie.thrillio.constants.BookGenre;
 import com.aie.thrillio.partner.Shareable;
 
 import java.util.Arrays;
@@ -10,7 +11,7 @@ public class Book extends Bookmark implements Shareable {
     private int publicationYear;
     private String publisher;
     private String[] authors;
-    private String genre;
+    private BookGenre genre;
     private double amazonRating;
 
     public int getPublicationYear() {
@@ -37,11 +38,11 @@ public class Book extends Bookmark implements Shareable {
         this.authors = authors;
     }
 
-    public String getGenre() {
+    public BookGenre getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(BookGenre genre) {
         this.genre = genre;
     }
 
@@ -66,7 +67,7 @@ public class Book extends Bookmark implements Shareable {
 
     @Override
     public boolean isKidFriendlyEligible() {
-        if(getGenre().contains("Philosophy") || getGenre().contains("Self help"))
+        if(genre.equals(BookGenre.PHILOSOPHY) || genre.equals(BookGenre.SELF_HELP))
             return false;
         return true;
     }

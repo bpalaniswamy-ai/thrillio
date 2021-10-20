@@ -1,9 +1,18 @@
 package com.aie.thrillio.constants;
 
-public class KidFriendlyStatus {
-    private KidFriendlyStatus(){}
+public enum KidFriendlyStatus {
+    
+    APPROVED("approved"),
+    REJECTED("rejected"),
+    UNKNOWN("unknown");
+    
+    private KidFriendlyStatus(String status){
+        this.status = status;
+    }
 
-    public static final String APPROVED = "approved";
-    public static final String REJECTED = "rejected";
-    public static final String UNKNOWN = "unknown";
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
 }

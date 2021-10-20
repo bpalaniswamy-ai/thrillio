@@ -1,5 +1,6 @@
 package com.aie.thrillio.controller;
 
+import com.aie.thrillio.constants.KidFriendlyStatus;
 import com.aie.thrillio.entity.Bookmark;
 import com.aie.thrillio.entity.User;
 import com.aie.thrillio.service.BookmarkService;
@@ -17,7 +18,7 @@ public class BookmarkController {
         BookmarkService.getInstance().saveUserBookmark(user, bookmark);
     }
 
-    public void setKidFriendlyStatus(User user, String kidFriendlyStatus, Bookmark bookmark) {
+    public void setKidFriendlyStatus(User user, KidFriendlyStatus kidFriendlyStatus, Bookmark bookmark) {
         BookmarkService.getInstance().setKidFriendlyStatus(user, kidFriendlyStatus, bookmark);
     }
 

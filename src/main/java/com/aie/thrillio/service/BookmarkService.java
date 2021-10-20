@@ -1,5 +1,8 @@
 package com.aie.thrillio.service;
 
+import com.aie.thrillio.constants.BookGenre;
+import com.aie.thrillio.constants.KidFriendlyStatus;
+import com.aie.thrillio.constants.MovieGenre;
 import com.aie.thrillio.dao.BookmarksDao;
 import com.aie.thrillio.entity.*;
 
@@ -14,7 +17,7 @@ public class BookmarkService {
         return instance;
     }
 
-    public Movie createMovie(long id, String title,  int releaseYear, String[] cast, String[] directors, String genre, double imdbRating) {
+    public Movie createMovie(long id, String title, int releaseYear, String[] cast, String[] directors, MovieGenre genre, double imdbRating) {
         Movie movie = new Movie();
         movie.setId(id);
         movie.setTitle(title);
@@ -27,7 +30,7 @@ public class BookmarkService {
         return movie;
     }
 
-    public Book createBook(long id, String title, int publicationYear, String publisher, String[] authors, String genre, Double amazonRating) {
+    public Book createBook(long id, String title, int publicationYear, String publisher, String[] authors, BookGenre genre, Double amazonRating) {
         Book book = new Book();
         book.setId(id);
         book.setTitle(title);
@@ -63,7 +66,7 @@ public class BookmarkService {
         dao.saveUserBookmark(userBookmark);
     }
 
-    public void setKidFriendlyStatus(User user, String kidFriendlyStatus, Bookmark bookmark) {
+    public void setKidFriendlyStatus(User user, KidFriendlyStatus kidFriendlyStatus, Bookmark bookmark) {
         bookmark.setKidFriendlyStatus(kidFriendlyStatus);
         bookmark.setKidFriendlyMarkedBy(user);
         System.out.println("Kid Friendly Status " + kidFriendlyStatus + " , Marked by " + user.getEmail() + " , " + bookmark );
